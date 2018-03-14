@@ -21,6 +21,8 @@ parser.add_argument('dataset', help='dataset for experiemnt')
 parser.add_argument('saves', help='the name to saves the experiment result after training')
 parser.add_argument('--no-cuda', action='store_true', default=False,
                     help='disables CUDA training')
+parser.add_argument('--gpu-id', type=int, default=0,
+                    help='use gpu of specific id for training, --no-cuda will override this (default: 0)')
 parser.add_argument('--save-state', action='store_true', default=False,
                     help='save the state of model after training')
 parser.add_argument('--seed', type=int, default=1, metavar='S',
@@ -32,6 +34,7 @@ args.cuda = not args.no_cuda and torch.cuda.is_available()
 torch.manual_seed(args.seed)
 if args.cuda:
     torch.cuda.manual_seed(args.seed)
+    torch.cuda.set_device(args.gpu_id)
 
 num_classes = datasets.num_classes[args.dataset]
 cnn = models.__dict__[args.model](num_classes=num_classes, pretrained=args.pretrained)
