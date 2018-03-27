@@ -18,6 +18,10 @@ parser.add_argument('--lr', type=float, default=1e-4, metavar='LR',
 parser.add_argument('model', help='name of model used for training')
 parser.add_argument('pretrained', type=int, help='level knowledge of transferred from pretrained')
 parser.add_argument('dataset', help='dataset for experiemnt')
+parser.add_argument('--data-augmentation', action='store_true', default=False,
+                    help='apply data augmentation on dataset (default: False)')
+parser.add_argument('--sample-per-class', default="-1",  metavar='n',
+                    help='use only n sample per class to train (default: use all)')
 parser.add_argument('saves', help='the name to saves the experiment result after training')
 parser.add_argument('--no-cuda', action='store_true', default=False,
                     help='disables CUDA training')
@@ -39,7 +43,9 @@ if args.cuda:
 num_classes = datasets.num_classes[args.dataset]
 cnn = models.__dict__[args.model](num_classes=num_classes, pretrained=args.pretrained)
 dataset = datasets.__dict__[args.dataset]
-train_loader, test_loader = dataset(batch_size=args.batch_size, download=False)
+sample = [int(i) for i in args.sample_per_class.split(',')]*2
+train_loader, test_loader = dataset(batch_size=args.batch_size, data_augmentation=args.data_augmentation,
+                                        download=False, sample_per_class=tuple(sample))
 
 if args.cuda:
     cnn.cuda()
