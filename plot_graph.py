@@ -19,7 +19,7 @@ import matplotlib.pyplot as plt
 
 
 experiments = args.name.split(',')
-labels = args.name.split(',')
+labels = args.label.split(',')
 
 # construct matplotlib fig
 fig, (ax_acc, ax_loss) = plt.subplots(1, 2, figsize=(18,7))
