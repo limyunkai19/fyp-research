@@ -40,13 +40,27 @@ if args.cuda:
     torch.cuda.manual_seed(args.seed)
     torch.cuda.set_device(args.gpu_id)
 
-num_classes = datasets.num_classes[args.dataset]
-cnn = models.__dict__[args.model](num_classes=num_classes, pretrained=args.pretrained)
-dataset = datasets.__dict__[args.dataset]
 sample = [int(i) for i in args.sample_per_class.split(',')]*2
-train_loader, test_loader = dataset(batch_size=args.batch_size, data_augmentation=args.data_augmentation,
-                                        download=False, sample_per_class=tuple(sample))
 
+if args.dataset not in datasets.available_datasets:
+    # custom folder dataset
+    import os
+    train_data = os.path.join(args.dataset, 'train')
+    test_data = os.path.join(args.dataset, 'val')
+
+    from torchvision.datasets.folder import find_classes
+    num_classes = len(find_classes(train_data)[0])
+    train_loader = datasets.folder(train_data, batch_size=args.batch_size,
+                                data_augmentation=args.data_augmentation, sample_per_class=sample[0])
+    test_loader = datasets.folder(test_data, batch_size=args.batch_size,
+                                data_augmentation=args.data_augmentation, sample_per_class=sample[1])
+else:
+    num_classes = datasets.num_classes[args.dataset]
+    dataset = datasets.__dict__[args.dataset]
+    train_loader, test_loader = dataset(batch_size=args.batch_size, data_augmentation=args.data_augmentation,
+                                            download=False, sample_per_class=tuple(sample))
+
+cnn = models.__dict__[args.model](num_classes=num_classes, pretrained=args.pretrained)
 if args.cuda:
     cnn.cuda()
 
