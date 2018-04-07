@@ -177,25 +177,33 @@ def model_save(model, history, name, base_path='results', save_state=True):
 
     if save_state:
         torch.save(model.state_dict(), os.sep.join([working_dir, 'model.pth']))
-    f = open(os.sep.join([working_dir, 'history.json']), 'w')
-    json.dump(history.get_dict(), f)
-    f.close()
 
-def model_load(model, name, base_path='results'):
+    with open(os.sep.join([working_dir, 'meta.json']), 'w') as f:
+        json.dump(model.meta, f)
+
+    with open(os.sep.join([working_dir, 'history.json']), 'w') as f:
+        json.dump(history.get_dict(), f)
+
+    return working_dir
+
+def model_load(name, base_path='results'):
     working_dir = os.sep.join([base_path, name])
     if not os.path.isdir(working_dir):
         print("Saves not found")
         return None, None
 
-    # todo implement model meta and use generic model loader
-    # instead of passing existing model
-    model.load_state_dict(torch.load(os.sep.join([working_dir, 'model.pth'])))
-    f = open(os.sep.join([working_dir, 'history.json']), 'r')
-    hist = json.load(f)
-    f.close()
-    history = History().from_dict(hist)
+    with open(os.sep.join([working_dir, 'meta.json']), 'r') as f:
+        meta = json.load(f)
 
-    return model, history
+    import models
+    model = models.__dict__[meta['base_model']](
+        num_classes=meta['num_classes'],
+        pretrained=meta['pretrained'],
+        mode=meta['mode']
+    )
+    model.load_state_dict(torch.load(os.sep.join([working_dir, 'model.pth'])))
+
+    return model
 
 def prod(lists):
     ans = 1

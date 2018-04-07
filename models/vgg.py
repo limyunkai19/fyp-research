@@ -34,6 +34,12 @@ def vgg(vgg_name='vgg16_bn', num_classes=1000, pretrained=4, mode=('freeze', 'fi
         else:
             apply_mode(layer, mode[1])
 
+    neural_network.meta = {
+        'base_model': vgg_name,
+        'num_classes': num_classes,
+        'pretrained': pretrained,
+        'mode': mode
+    }
     return neural_network
 
 def vgg11(**kwargs): return vgg(vgg_name='vgg11', **kwargs)

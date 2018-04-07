@@ -21,6 +21,12 @@ def alexnet(num_classes=1000, pretrained=4, mode=('freeze', 'fine-tune')):
         else:
             apply_mode(layer, mode[1])
 
+    neural_network.meta = {
+        'base_model': 'alexnet',
+        'num_classes': num_classes,
+        'pretrained': pretrained,
+        'mode': mode
+    }
     return neural_network
 
 # pretrained:

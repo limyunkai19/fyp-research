@@ -23,6 +23,12 @@ def densenet(densenet_name='densenet121', num_classes=1000, pretrained=4, mode=(
         else:
             apply_mode(layer, mode[1])
 
+    neural_network.meta = {
+        'base_model': densenet_name,
+        'num_classes': num_classes,
+        'pretrained': pretrained,
+        'mode': mode
+    }
     return neural_network
 
 def densenet121(**kwargs): return densenet(densenet_name='densenet121', **kwargs)
