@@ -190,7 +190,7 @@ def model_load(name, base_path='results'):
     working_dir = os.sep.join([base_path, name])
     if not os.path.isdir(working_dir):
         print("Saves not found")
-        return None, None
+        return None
 
     with open(os.sep.join([working_dir, 'meta.json']), 'r') as f:
         meta = json.load(f)
