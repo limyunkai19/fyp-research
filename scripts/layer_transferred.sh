@@ -11,5 +11,6 @@ for model in alexnet vgg16_bn densenet121 resnet50; do
     done;
     exp=layer_transferred_${dataset}_${model}_-1,layer_transferred_${dataset}_${model}_1,layer_transferred_${dataset}_${model}_2,layer_transferred_${dataset}_${model}_3,layer_transferred_${dataset}_${model}_4
     python plot_graph.py $exp "scratch,pretrained: 0,pretrained: 1,pretrained: 2,pretrained: 3,pretrained: 4" "$model on $dataset dataset with data augmentation"
+    mv $model_on_$dataset_dataset_with_data_augmentation.png results/graphs/layer_transferred_${dataset}_${model}.png
 done;
 
