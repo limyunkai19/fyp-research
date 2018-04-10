@@ -7,7 +7,14 @@ __all__ = ['inception_v3']
 
 def inception_v3(num_classes=1000, pretrained=4, mode=('freeze', 'fine-tune')):
     if pretrained == -1:
-        return torchvision.models.inception_v3(pretrained=False, num_classes=num_classes)
+        neural_network = torchvision.models.inception_v3(pretrained=False, num_classes=num_classes)
+        neural_network.meta = {
+            'base_model': 'inception_v3',
+            'num_classes': num_classes,
+            'pretrained': pretrained,
+            'mode': mode
+        }
+        return neural_network
 
     neural_network = torchvision.models.inception_v3(pretrained=True)
     neural_network.fc = torch.nn.Linear(2048, num_classes)

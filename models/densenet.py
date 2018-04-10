@@ -8,7 +8,14 @@ __all__ = ['densenet121', 'densenet169', 'densenet201', 'densenet161']
 def densenet(densenet_name='densenet121', num_classes=1000, pretrained=4, mode=('freeze', 'fine-tune')):
     densenet_model = torchvision.models.__dict__[densenet_name]
     if pretrained == -1:
-        return densenet_model(pretrained=False, num_classes=num_classes)
+        neural_network = densenet_model(pretrained=False, num_classes=num_classes)
+        neural_network.meta = {
+            'base_model': densenet_name,
+            'num_classes': num_classes,
+            'pretrained': pretrained,
+            'mode': mode
+        }
+        return neural_network
 
     neural_network = densenet_model(pretrained=True)
     in_features = neural_network.classifier.in_features
