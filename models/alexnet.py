@@ -8,7 +8,7 @@ __all__ = ['alexnet']
 def alexnet(num_classes=1000, pretrained=4, mode=('freeze', 'fine-tune')):
     if pretrained == -1:
         neural_network = torchvision.models.alexnet(pretrained=False, num_classes=num_classes)
-            neural_network.meta = {
+        neural_network.meta = {
             'base_model': 'alexnet',
             'num_classes': num_classes,
             'pretrained': pretrained,
