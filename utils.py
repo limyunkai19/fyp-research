@@ -29,7 +29,7 @@ class History:
     # def visualize(self, iter=False):
 
 
-def model_fit(model, train_loader, criterion, optimizer, epochs=1, validation=None, cuda=False):
+def model_fit(model, train_loader, criterion, optimizer, epochs=1, validation=None, cuda=False, save_best_name=None):
     history = History()
 
     if validation is not None:
@@ -37,10 +37,13 @@ def model_fit(model, train_loader, criterion, optimizer, epochs=1, validation=No
                     len(train_loader.sampler), len(validation.sampler)))
         history.meta['train_size'] = len(train_loader.sampler)
         history.meta['val_size'] = len(validation.sampler)
+        if 'best_val_acc' not in model.meta:
+            model.meta['best_val_acc'] = -1
     else:
         print("Train on {} samples, no validate samples".format(
                     len(train_loader.sampler)))
         history.meta['train_size'] = len(train_loader.sampler)
+        save_best_name = None
 
     print("Cuda: {}".format(cuda))
 
@@ -123,17 +126,16 @@ def model_fit(model, train_loader, criterion, optimizer, epochs=1, validation=No
             history.iter_history['val_acc'].append(correct/len(target))
         toc = time.time()
 
-        # test_loss /= len(validation.sampler)
-        # print('\nTest set: Average loss: {:.4f}, Accuracy: {}/{} ({:.0f}%)\n'.format(
-        #     test_loss, correct, len(validation.sampler),
-        #     100. * correct / len(validation.sampler)))
-
         loss = total_loss/len(validation.sampler)
         acc = total_correct/len(validation.sampler)
         history.epoch_history['val_loss'].append(loss)
         history.epoch_history['val_acc'].append(acc)
         print("- validate - {}s - val_loss: {} - val_acc: {}".format(
                 toc-tic, loss, acc))
+
+        if save_best_name is not None and acc > model.meta['best_val_acc']:
+            model.meta['best_val_acc'] = acc
+            model_checkpoint(model, save_best_name, 'best_model')
 
     return history
 
@@ -162,18 +164,24 @@ def model_eval(model, test_loader, criterion, cuda=False, verbose=True):
     print("Test - {}s - loss: {} - acc: {}/{} {}".format(
             toc-tic, loss, total_correct, len(test_loader.sampler), acc))
 
+def model_checkpoint(model, name, checkpoint_name, base_path='results'):
+    if not os.path.isdir(base_path):
+        os.mkdir(base_path)
+
+    working_dir = os.sep.join([base_path, name])
+    if not os.path.isdir(working_dir):
+        os.mkdir(working_dir)
+
+    torch.save(model.state_dict(), os.sep.join([working_dir, '{}.pth'.format(checkpoint_name)]))
+
+
 def model_save(model, history, name, base_path='results', save_state=True):
     if not os.path.isdir(base_path):
         os.mkdir(base_path)
 
-    working_name = name
-    i = 0
-    while os.path.exists(os.sep.join([base_path, working_name])):
-        i += 1
-        working_name = name + str(i)
-
-    working_dir = os.sep.join([base_path, working_name])
-    os.mkdir(working_dir)
+    working_dir = os.sep.join([base_path, name])
+    if not os.path.isdir(working_dir):
+        os.mkdir(working_dir)
 
     if save_state:
         torch.save(model.state_dict(), os.sep.join([working_dir, 'model.pth']))

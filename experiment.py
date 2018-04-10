@@ -29,6 +29,8 @@ parser.add_argument('--gpu-id', type=int, default=0,
                     help='use gpu of specific id for training, --no-cuda will override this (default: 0)')
 parser.add_argument('--save-state', action='store_true', default=False,
                     help='save the state of model after training')
+parser.add_argument('--save-best', action='store_true', default=False,
+                    help='save the model with best validation accuracy')
 parser.add_argument('--seed', type=int, default=1, metavar='S',
                     help='random seed for replicable result (default: 1)')
 args = parser.parse_args()
@@ -70,7 +72,11 @@ criterion = nn.CrossEntropyLoss()
 if args.cuda:
     criterion.cuda()
 
+if args.save_best:
+    save_best_name=args.saves
+else:
+    save_best_name=None
 history = model_fit(cnn, train_loader, criterion, optimizer,
-                        epochs=args.epochs, validation=test_loader, cuda=args.cuda)
+                        epochs=args.epochs, validation=test_loader, cuda=args.cuda, save_best_name=save_best_name)
 
 model_save(cnn, history, args.saves, save_state=args.save_state)
