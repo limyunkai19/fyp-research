@@ -1,0 +1,1 @@
+{"mode": ["freeze", "fine-tune"], "pretrained": -1, "base_model": "alexnet", "num_classes": 100, "best_val_acc": -1}

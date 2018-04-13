@@ -1,0 +1,1 @@
+{"mode": ["freeze", "fine-tune"], "base_model": "vgg16_bn", "num_classes": 100, "pretrained": 1, "best_val_acc": -1}
