@@ -1,0 +1,1 @@
+{"base_model": "resnet18", "pretrained": 2, "mode": ["freeze", "fine-tune"], "best_val_acc": -1, "num_classes": 10}
