@@ -1,0 +1,82 @@
+Train on 50 samples, validate on 50 samples
+Cuda: True
+Train Epoch: 1 [0/50 (0%)]	Loss: 2.474572
+Epoch 1/40 - train - 0.9142327308654785s - loss: 2.474571704864502 - acc: 0.1 - validate - 0.18876218795776367s - val_loss: 2.462376117706299 - val_acc: 0.1
+Train Epoch: 2 [0/50 (0%)]	Loss: 2.285766
+Epoch 2/40 - train - 0.28397440910339355s - loss: 2.285766363143921 - acc: 0.14 - validate - 0.1878042221069336s - val_loss: 2.4509663581848145 - val_acc: 0.1
+Train Epoch: 3 [0/50 (0%)]	Loss: 2.170574
+Epoch 3/40 - train - 0.27677106857299805s - loss: 2.170574426651001 - acc: 0.18 - validate - 0.18881821632385254s - val_loss: 2.3592875003814697 - val_acc: 0.12
+Train Epoch: 4 [0/50 (0%)]	Loss: 2.080777
+Epoch 4/40 - train - 0.27710604667663574s - loss: 2.0807769298553467 - acc: 0.18 - validate - 0.18742084503173828s - val_loss: 2.291782855987549 - val_acc: 0.12
+Train Epoch: 5 [0/50 (0%)]	Loss: 2.001142
+Epoch 5/40 - train - 0.27684998512268066s - loss: 2.0011417865753174 - acc: 0.2 - validate - 0.18592143058776855s - val_loss: 2.265622854232788 - val_acc: 0.1
+Train Epoch: 6 [0/50 (0%)]	Loss: 1.901800
+Epoch 6/40 - train - 0.2774808406829834s - loss: 1.9018000364303589 - acc: 0.32 - validate - 0.18761062622070312s - val_loss: 2.252869129180908 - val_acc: 0.1
+Train Epoch: 7 [0/50 (0%)]	Loss: 1.825943
+Epoch 7/40 - train - 0.2781338691711426s - loss: 1.825943112373352 - acc: 0.42 - validate - 0.18732166290283203s - val_loss: 2.2418837547302246 - val_acc: 0.14
+Train Epoch: 8 [0/50 (0%)]	Loss: 1.623056
+Epoch 8/40 - train - 0.276202917098999s - loss: 1.6230560541152954 - acc: 0.48 - validate - 0.1882610321044922s - val_loss: 2.2261579036712646 - val_acc: 0.18
+Train Epoch: 9 [0/50 (0%)]	Loss: 1.603637
+Epoch 9/40 - train - 0.2764902114868164s - loss: 1.6036365032196045 - acc: 0.44 - validate - 0.18707275390625s - val_loss: 2.212717056274414 - val_acc: 0.2
+Train Epoch: 10 [0/50 (0%)]	Loss: 1.493176
+Epoch 10/40 - train - 0.27721428871154785s - loss: 1.4931764602661133 - acc: 0.58 - validate - 0.18858838081359863s - val_loss: 2.213289976119995 - val_acc: 0.16
+Train Epoch: 11 [0/50 (0%)]	Loss: 1.440728
+Epoch 11/40 - train - 0.28043556213378906s - loss: 1.440727949142456 - acc: 0.62 - validate - 0.18645453453063965s - val_loss: 2.234018325805664 - val_acc: 0.18
+Train Epoch: 12 [0/50 (0%)]	Loss: 1.322650
+Epoch 12/40 - train - 0.27684998512268066s - loss: 1.3226501941680908 - acc: 0.64 - validate - 0.1875596046447754s - val_loss: 2.269188165664673 - val_acc: 0.16
+Train Epoch: 13 [0/50 (0%)]	Loss: 1.312940
+Epoch 13/40 - train - 0.2783324718475342s - loss: 1.3129396438598633 - acc: 0.62 - validate - 0.18677067756652832s - val_loss: 2.313004732131958 - val_acc: 0.12
+Train Epoch: 14 [0/50 (0%)]	Loss: 1.196160
+Epoch 14/40 - train - 0.27833008766174316s - loss: 1.1961596012115479 - acc: 0.7 - validate - 0.18767285346984863s - val_loss: 2.3578569889068604 - val_acc: 0.12
+Train Epoch: 15 [0/50 (0%)]	Loss: 1.196894
+Epoch 15/40 - train - 0.2785630226135254s - loss: 1.1968941688537598 - acc: 0.64 - validate - 0.18759560585021973s - val_loss: 2.389822483062744 - val_acc: 0.16
+Train Epoch: 16 [0/50 (0%)]	Loss: 0.983216
+Epoch 16/40 - train - 0.27882981300354004s - loss: 0.983215868473053 - acc: 0.8 - validate - 0.18668842315673828s - val_loss: 2.4172120094299316 - val_acc: 0.16
+Train Epoch: 17 [0/50 (0%)]	Loss: 0.942013
+Epoch 17/40 - train - 0.2782249450683594s - loss: 0.9420133233070374 - acc: 0.76 - validate - 0.1883544921875s - val_loss: 2.441922664642334 - val_acc: 0.16
+Train Epoch: 18 [0/50 (0%)]	Loss: 0.941319
+Epoch 18/40 - train - 0.27596521377563477s - loss: 0.9413191080093384 - acc: 0.74 - validate - 0.18654417991638184s - val_loss: 2.4669454097747803 - val_acc: 0.2
+Train Epoch: 19 [0/50 (0%)]	Loss: 0.822787
+Epoch 19/40 - train - 0.27553534507751465s - loss: 0.8227871656417847 - acc: 0.82 - validate - 0.18806791305541992s - val_loss: 2.4855992794036865 - val_acc: 0.18
+Train Epoch: 20 [0/50 (0%)]	Loss: 0.761908
+Epoch 20/40 - train - 0.27890801429748535s - loss: 0.7619080543518066 - acc: 0.86 - validate - 0.18651056289672852s - val_loss: 2.509636163711548 - val_acc: 0.16
+Train Epoch: 21 [0/50 (0%)]	Loss: 0.681348
+Epoch 21/40 - train - 0.2788691520690918s - loss: 0.6813483238220215 - acc: 0.86 - validate - 0.18639588356018066s - val_loss: 2.552963972091675 - val_acc: 0.18
+Train Epoch: 22 [0/50 (0%)]	Loss: 0.646317
+Epoch 22/40 - train - 0.2763965129852295s - loss: 0.6463172435760498 - acc: 0.86 - validate - 0.18832755088806152s - val_loss: 2.6064395904541016 - val_acc: 0.2
+Train Epoch: 23 [0/50 (0%)]	Loss: 0.664583
+Epoch 23/40 - train - 0.2779276371002197s - loss: 0.6645834445953369 - acc: 0.84 - validate - 0.18712687492370605s - val_loss: 2.6607930660247803 - val_acc: 0.2
+Train Epoch: 24 [0/50 (0%)]	Loss: 0.625742
+Epoch 24/40 - train - 0.2769663333892822s - loss: 0.6257423162460327 - acc: 0.88 - validate - 0.18899011611938477s - val_loss: 2.7157299518585205 - val_acc: 0.22
+Train Epoch: 25 [0/50 (0%)]	Loss: 0.425525
+Epoch 25/40 - train - 0.2780122756958008s - loss: 0.4255252182483673 - acc: 0.9 - validate - 0.18749356269836426s - val_loss: 2.7662408351898193 - val_acc: 0.24
+Train Epoch: 26 [0/50 (0%)]	Loss: 0.428815
+Epoch 26/40 - train - 0.27695131301879883s - loss: 0.42881545424461365 - acc: 0.9 - validate - 0.186997652053833s - val_loss: 2.829111099243164 - val_acc: 0.24
+Train Epoch: 27 [0/50 (0%)]	Loss: 0.447406
+Epoch 27/40 - train - 0.27815890312194824s - loss: 0.44740596413612366 - acc: 0.96 - validate - 0.18962645530700684s - val_loss: 2.8831262588500977 - val_acc: 0.24
+Train Epoch: 28 [0/50 (0%)]	Loss: 0.361215
+Epoch 28/40 - train - 0.2775895595550537s - loss: 0.36121514439582825 - acc: 0.92 - validate - 0.1885056495666504s - val_loss: 2.909468412399292 - val_acc: 0.24
+Train Epoch: 29 [0/50 (0%)]	Loss: 0.330188
+Epoch 29/40 - train - 0.2796974182128906s - loss: 0.33018797636032104 - acc: 0.96 - validate - 0.18755626678466797s - val_loss: 2.951925754547119 - val_acc: 0.24
+Train Epoch: 30 [0/50 (0%)]	Loss: 0.251114
+Epoch 30/40 - train - 0.27829599380493164s - loss: 0.25111353397369385 - acc: 1.0 - validate - 0.18683171272277832s - val_loss: 2.9970736503601074 - val_acc: 0.24
+Train Epoch: 31 [0/50 (0%)]	Loss: 0.295358
+Epoch 31/40 - train - 0.27781057357788086s - loss: 0.295358270406723 - acc: 0.94 - validate - 0.18766570091247559s - val_loss: 3.060927391052246 - val_acc: 0.26
+Train Epoch: 32 [0/50 (0%)]	Loss: 0.219617
+Epoch 32/40 - train - 0.2787902355194092s - loss: 0.21961721777915955 - acc: 1.0 - validate - 0.18577313423156738s - val_loss: 3.133664608001709 - val_acc: 0.26
+Train Epoch: 33 [0/50 (0%)]	Loss: 0.208486
+Epoch 33/40 - train - 0.27738428115844727s - loss: 0.20848622918128967 - acc: 0.98 - validate - 0.18843412399291992s - val_loss: 3.1694393157958984 - val_acc: 0.24
+Train Epoch: 34 [0/50 (0%)]	Loss: 0.134724
+Epoch 34/40 - train - 0.283174991607666s - loss: 0.1347244381904602 - acc: 1.0 - validate - 0.18745660781860352s - val_loss: 3.2039010524749756 - val_acc: 0.24
+Train Epoch: 35 [0/50 (0%)]	Loss: 0.168415
+Epoch 35/40 - train - 0.27785229682922363s - loss: 0.16841484606266022 - acc: 1.0 - validate - 0.19019865989685059s - val_loss: 3.2355241775512695 - val_acc: 0.24
+Train Epoch: 36 [0/50 (0%)]	Loss: 0.171764
+Epoch 36/40 - train - 0.27738213539123535s - loss: 0.1717642992734909 - acc: 0.98 - validate - 0.18634271621704102s - val_loss: 3.2542014122009277 - val_acc: 0.24
+Train Epoch: 37 [0/50 (0%)]	Loss: 0.110642
+Epoch 37/40 - train - 0.2782576084136963s - loss: 0.11064223200082779 - acc: 1.0 - validate - 0.18748784065246582s - val_loss: 3.259434223175049 - val_acc: 0.24
+Train Epoch: 38 [0/50 (0%)]	Loss: 0.182889
+Epoch 38/40 - train - 0.27542662620544434s - loss: 0.18288856744766235 - acc: 0.96 - validate - 0.18752765655517578s - val_loss: 3.3050835132598877 - val_acc: 0.26
+Train Epoch: 39 [0/50 (0%)]	Loss: 0.141419
+Epoch 39/40 - train - 0.2773113250732422s - loss: 0.14141923189163208 - acc: 0.98 - validate - 0.1887812614440918s - val_loss: 3.4012274742126465 - val_acc: 0.24
+Train Epoch: 40 [0/50 (0%)]	Loss: 0.106471
+Epoch 40/40 - train - 0.27817392349243164s - loss: 0.10647127777338028 - acc: 1.0 - validate - 0.18623995780944824s - val_loss: 3.541949510574341 - val_acc: 0.18
