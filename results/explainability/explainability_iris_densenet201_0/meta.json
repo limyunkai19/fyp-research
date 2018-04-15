@@ -1,0 +1,1 @@
+{"pretrained": 0, "best_val_acc": 0.9333333333333333, "num_classes": 3, "mode": ["freeze", "fine-tune"], "base_model": "densenet201"}
