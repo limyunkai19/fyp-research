@@ -103,3 +103,6 @@ ENV/
 # downloaded datasets
 datasets/*
 !datasets/*.py
+
+# other results
+results/*

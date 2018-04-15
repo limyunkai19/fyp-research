@@ -35,15 +35,15 @@ for i, (exp, label) in enumerate(zip(experiments, labels)):
 
     # plot accuracy axis
     if i%2 == 0:
-        ax_acc.plot(history['val_acc'], label=label, color=('C'+str(i//2)), linestyle='-')
-    else:
         ax_acc.plot(history['val_acc'], label=label, color=('C'+str(i//2)), linestyle=':')
+    else:
+        ax_acc.plot(history['val_acc'], label=label, color=('C'+str(i//2)), linestyle='-')
 
     # plot loss axis
     if i%2 == 0:
-        ax_loss.plot(history['val_loss'], label=label, color=('C'+str(i//2)), linestyle='-')
-    else:
         ax_loss.plot(history['val_loss'], label=label, color=('C'+str(i//2)), linestyle=':')
+    else:
+        ax_loss.plot(history['val_loss'], label=label, color=('C'+str(i//2)), linestyle='-')
 
 # add axis label
 ax_acc.set_xlabel('epoch')
