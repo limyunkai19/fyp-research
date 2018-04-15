@@ -6,6 +6,7 @@ model = ["resnet18", "resnet50", "resnet152", "densenet121", "densenet201", "den
 pre = [0, 2, 4]
 name = []
 result = []
+k = 2
 for p in pre:
     for m in model:
         name.append("{}_({})".format(m, p))
@@ -17,9 +18,10 @@ for res in result:
     gradcam.append(np.load(os.sep.join(["results", res, "gradcam.npy"])))
 gradcam = np.array(gradcam)
 
-kmeans = KMeans(n_clusters=2, random_state=0)
+kmeans = KMeans(n_clusters=k, random_state=0)
 kmeans.fit(gradcam)
 
+print("k-means clusting with {} cluster".format(k))
 for idx, (n, label) in enumerate(zip(name, kmeans.labels_)):
     print(n, ": ", label)
 
