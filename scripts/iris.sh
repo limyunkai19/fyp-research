@@ -12,6 +12,6 @@ for model in resnet18 resnet50 resnet152 densenet121 densenet201 densenet161; do
     done;
     exp=explainability_iris_${model}_0,explainability_iris_${model}_2,explainability_iris_${model}_4
     python plot_graph.py $exp "pretrained: 0,pretrained: 2,pretrained: 4" "$model on Iris flower dataset with data augmentation"
-    mv ${model}_on_iris_dataset_with_data_augmentation.png results/graphs/explainability_iris_${model}.png
+    mv ${model}_on_Iris_flower_dataset_with_data_augmentation.png results/graphs/explainability_iris_${model}.png
 done;
 
